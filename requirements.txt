@@ -1,0 +1,6 @@
+torchaudio
+omegaconf 
+sounddevice
+pyttsx3
+scipy
+soundfile
