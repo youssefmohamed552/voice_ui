@@ -4,3 +4,6 @@ sounddevice
 pyttsx3
 scipy
 soundfile
+torchtext
+wheel
+transformers
