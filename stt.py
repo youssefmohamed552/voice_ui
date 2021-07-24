@@ -7,7 +7,7 @@ device = torch.device('cpu')
 
 class SpeechToText:
   def __init__(self):
-    modelname = 'en_v2_jit.model'
+    modelname = 'en_v3_jit.model'
     self.model = torch.jit.load(modelname)
     self.decoder = Decoder(self.model.labels)
 

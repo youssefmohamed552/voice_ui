@@ -4,6 +4,7 @@
 
 ### prerequesits
 - install `portaudio` on ubuntu system `sudo apt-get install libportaudio2` 
+- install `libespeak1` on ubuntu system `sudo apt-get install libespeak1`
 
 ### virtual environment 
 - create a virtual environment `python3 -m venv env`

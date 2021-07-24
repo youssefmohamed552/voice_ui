@@ -4,7 +4,7 @@ from scipy.io.wavfile import write
 class Recorder:
   def __init__(self):
     self.fs = 44100
-    self.seconds = 3
+    self.seconds = 5
 
   def run(self):
     print('Recording ... ')

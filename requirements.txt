@@ -1,3 +1,4 @@
+wheel
 torchaudio
 omegaconf 
 sounddevice
@@ -5,5 +6,6 @@ pyttsx3
 scipy
 soundfile
 torchtext
-wheel
 transformers
+beautifulsoup4
+google
