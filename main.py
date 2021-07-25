@@ -8,7 +8,8 @@ from qa_system import QA_system
 from torchtext.datasets import WikiText2
 from torchtext.data.utils import get_tokenizer
 from googlesearch import search
-from urllib3 import request 
+from bs4 import BeautifulSoup
+import requests
 
 
 
@@ -39,8 +40,10 @@ def browse_the_web(query):
   print('query: ', query)
   link = next(search(query, tld='co.in', num=1, stop=1, pause=2))
   print('response link: ', link)
-  html = request('GET', link)
-  print('html: ', html)
+  response = requests.get(link)
+  html = response.text if response.status_code in range (200, 300) else f'The link failed to retrieve requested information and returned with status code :{response.status_code}'
+  # print('html: ', html)
+  return html
 
 
 
@@ -55,10 +58,13 @@ def main():
   tts = TextToSpeech()
   qa = QA_system()
   # dialogue = Dialogue()
-  recorder.run()
+  # recorder.run()
   # question = stt.convert('speech_orig.wav')
-  question = 'what is a square?'
-  browse_the_web(question)
+  question = 'what is the octopus mating season'
+  html = browse_the_web(question)
+  soup = BeautifulSoup(html, 'html.parser')
+  text = soup.get_text()
+  respond(tts, qa, question, text, True)
   # print(question)
   # answer = dialogue.eval(sentence)
   # answer = qa.run('What is the name of the repository ?', 'Pipeline have been included in the huggingface/transformers repository')
